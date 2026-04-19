@@ -1,0 +1,107 @@
+.hero {
+  text-align: center;
+  padding: var(--space-2xl) 0 var(--space-xl);
+}
+
+.accent {
+  color: var(--color-accent);
+  font-style: italic;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  max-width: 560px;
+  margin: var(--space-md) auto 0;
+}
+
+.form {
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  padding: var(--space-xl);
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+}
+
+.charCount {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  font-size: 0.7rem;
+  color: var(--color-text-dim);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.budgetWrap {
+  position: relative;
+}
+
+.currency {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.chip {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  padding: 6px 14px;
+  border-radius: 100px;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.chip:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.chipActive {
+  background: var(--color-accent-glow);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.error {
+  font-size: 0.85rem;
+  color: var(--color-error);
+  padding: var(--space-sm) var(--space-md);
+  background: rgba(212, 93, 93, 0.1);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--color-error);
+}
+
+@media (max-width: 768px) {
+  .row { grid-template-columns: 1fr; }
+  .form { padding: var(--space-lg); }
+}

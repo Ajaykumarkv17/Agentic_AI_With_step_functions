@@ -1,0 +1,252 @@
+.header {
+  text-align: center;
+  padding: var(--space-xl) 0 var(--space-lg);
+}
+
+.meta {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  margin-top: var(--space-sm);
+}
+
+/* ── Notices ── */
+.notices {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+
+/* ── Days ── */
+.days {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.dayCard {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.dayHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-lg);
+  background: none;
+  border: none;
+  color: var(--color-text);
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-body);
+  transition: background var(--duration-fast) var(--ease-out);
+}
+
+.dayHeader:hover {
+  background: var(--color-surface);
+}
+
+.dayTitle {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.dayDate {
+  font-size: 0.8rem;
+  color: var(--color-text-dim);
+}
+
+.dayMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-shrink: 0;
+}
+
+.weather {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.dayCost {
+  font-weight: 600;
+  color: var(--color-accent);
+  font-size: 0.9rem;
+}
+
+.chevron {
+  color: var(--color-text-dim);
+  font-size: 0.9rem;
+}
+
+.dayBody {
+  padding: 0 var(--space-lg) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  animation: fadeInUp var(--duration-normal) var(--ease-out);
+}
+
+/* ── Slots ── */
+.slots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.slot {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.slotFestival {
+  border-color: var(--color-accent);
+  background: var(--color-accent-glow);
+}
+
+.slotHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slotTime {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+}
+
+.slotType {
+  font-size: 0.7rem;
+  color: var(--color-text-dim);
+  text-transform: capitalize;
+}
+
+.slotTitle {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.slotDesc {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.slotCost {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-top: auto;
+}
+
+/* ── Transport / Accommodation ── */
+.transport, .accommodation {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.transportIcon {
+  font-size: 1rem;
+}
+
+/* ── Summary ── */
+.summary {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-xl);
+  margin-top: var(--space-lg);
+}
+
+.summary h2 {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.summaryCard {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  text-align: center;
+}
+
+.summaryLabel {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-dim);
+  margin-bottom: var(--space-xs);
+}
+
+.summaryValue {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.summarySection {
+  margin-bottom: var(--space-lg);
+}
+
+.summarySection h3 {
+  margin-bottom: var(--space-sm);
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.list li {
+  position: relative;
+  padding-left: 1.2rem;
+  margin-bottom: var(--space-xs);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .slots { grid-template-columns: 1fr; }
+  .summaryGrid { grid-template-columns: 1fr; }
+  .dayHeader { flex-direction: column; align-items: flex-start; gap: var(--space-sm); }
+  .dayMeta { width: 100%; justify-content: space-between; }
+}

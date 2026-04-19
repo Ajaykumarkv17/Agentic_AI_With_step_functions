@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Typography */
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'DM Sans', sans-serif;
+
+  /* Warm light palette */
+  --color-bg: #faf7f2;
+  --color-bg-elevated: #ffffff;
+  --color-bg-card: #ffffff;
+  --color-surface: #f3ede4;
+  --color-text: #2c2420;
+  --color-text-muted: #7a6e66;
+  --color-text-dim: #a89e96;
+  --color-accent: #b5622a;
+  --color-accent-glow: rgba(181, 98, 42, 0.12);
+  --color-accent-hover: #c97340;
+  --color-border: #e4ddd4;
+  --color-border-subtle: #ede8e1;
+
+  /* Status colors */
+  --color-success: #3a8c57;
+  --color-warning: #c47d1a;
+  --color-error: #c0392b;
+  --color-info: #2e7ab8;
+  --color-pending: #c8bfb6;
+  --color-running: var(--color-accent);
+  --color-fallback: var(--color-warning);
+
+  /* Motion */
+  --duration-fast: 200ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+h1 { font-size: 3rem; letter-spacing: -0.02em; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.4rem; }
+h4 { font-size: 1.1rem; }
+
+a { color: var(--color-accent); text-decoration: none; transition: color var(--duration-fast) var(--ease-out); }
+a:hover { color: var(--color-accent-hover); }
+
+/* ── Layout ── */
+.page-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-lg);
+}
+
+/* ── Buttons ── */
+.btn {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  padding: 0.85rem 2rem;
+  border-radius: var(--radius-sm);
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--color-accent-hover);
+  box-shadow: 0 0 24px var(--color-accent-glow);
+  transform: translateY(-1px);
+}
+.btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ── Form Elements ── */
+.input, .textarea, .select {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  transition: border-color var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
+}
+.input:focus, .textarea:focus, .select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-glow);
+}
+.textarea { resize: vertical; min-height: 100px; line-height: 1.5; }
+
+.label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xs);
+}
+
+/* ── Cards ── */
+.card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  transition: border-color var(--duration-normal) var(--ease-out), box-shadow var(--duration-normal) var(--ease-out);
+}
+.card:hover {
+  border-color: var(--color-border-subtle);
+}
+
+/* ── Animations ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-in {
+  animation: fadeInUp var(--duration-slow) var(--ease-out) both;
+}
+
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
+
+/* ── Status Badges ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+.badge-pending { background: #ede8e1; color: #8a7e76; }
+.badge-running { background: var(--color-accent-glow); color: var(--color-accent); }
+.badge-completed { background: rgba(58,140,87,0.12); color: var(--color-success); }
+.badge-failed { background: rgba(192,57,43,0.1); color: var(--color-error); }
+.badge-fallback { background: rgba(196,125,26,0.12); color: var(--color-fallback); }
+
+/* ── Divider ── */
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: var(--space-lg) 0;
+}
+
+/* ── Notice ── */
+.notice {
+  font-size: 0.85rem;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--color-warning);
+  background: rgba(196,125,26,0.08);
+  color: var(--color-text-muted);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  .page-container { padding: var(--space-lg) var(--space-md); }
+}

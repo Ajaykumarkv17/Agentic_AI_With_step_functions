@@ -1,0 +1,151 @@
+.wrapper {
+  text-align: center;
+  padding: var(--space-xl) 0;
+}
+
+.heading {
+  font-size: 2rem;
+  margin-bottom: var(--space-sm);
+}
+
+.sub {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xl);
+}
+
+/* ── Agent Cards ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg) var(--space-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--duration-normal) var(--ease-out), box-shadow var(--duration-normal) var(--ease-out);
+}
+
+.card.running {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 20px var(--color-accent-glow);
+}
+
+.card.completed {
+  border-color: var(--color-success);
+}
+
+.card.failed {
+  border-color: var(--color-error);
+}
+
+.card.fallback {
+  border-color: var(--color-warning);
+}
+
+.cardIcon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.cardTitle {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--color-text-muted);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  animation: pulse 1.2s ease-in-out infinite;
+  display: inline-block;
+}
+
+.progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s linear infinite;
+}
+
+/* ── Pipeline ── */
+.pipeline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-top: var(--space-md);
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.stepDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border);
+  background: transparent;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.stepDone .stepDot {
+  background: var(--color-success);
+  border-color: var(--color-success);
+}
+
+.stepActive .stepDot {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 8px var(--color-accent-glow);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.stepLabel {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-dim);
+}
+
+.stepDone .stepLabel { color: var(--color-success); }
+.stepActive .stepLabel { color: var(--color-accent); }
+
+.connector {
+  width: 48px;
+  height: 2px;
+  background: var(--color-border);
+  margin: 0 4px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 480px) {
+  .grid { grid-template-columns: 1fr; }
+  .connector { width: 24px; }
+}

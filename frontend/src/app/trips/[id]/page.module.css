@@ -1,12 +1,157 @@
+/* ── Header ── */
 .header {
   text-align: center;
-  padding: var(--space-xl) 0 var(--space-lg);
+  padding: var(--space-xl) 0 var(--space-md);
 }
 
 .meta {
   color: var(--color-text-muted);
   font-size: 1rem;
   margin-top: var(--space-sm);
+}
+
+/* ── Route Banner ── */
+.routeBanner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+  padding: var(--space-lg) var(--space-xl);
+  margin-bottom: var(--space-xl);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.routeBanner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-hover), var(--color-accent));
+}
+
+.routeEndpoint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 100px;
+}
+
+.routeCity {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.routeLabel {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-dim);
+}
+
+.routeLine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  max-width: 300px;
+  min-width: 160px;
+  position: relative;
+}
+
+.routeDots {
+  width: 100%;
+  height: 24px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.routeDots::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 0;
+  border-top: 2px dashed var(--color-accent);
+  opacity: 0.35;
+}
+
+.routeIcon {
+  position: relative;
+  z-index: 1;
+  background: var(--color-bg-card);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.routeDetail {
+  font-family: var(--font-numeric);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  text-transform: capitalize;
+}
+
+/* ── Trip Info Bar ── */
+.tripInfoBar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.tripInfoItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: var(--space-md);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+.tripInfoIcon {
+  font-size: 1.2rem;
+  margin-bottom: 2px;
+  line-height: 1;
+}
+
+.tripInfoValue {
+  font-family: var(--font-numeric);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.tripInfoLabel {
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-dim);
 }
 
 /* ── Notices ── */
@@ -21,8 +166,21 @@
 .days {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  gap: var(--space-lg);
   margin-bottom: var(--space-xl);
+  position: relative;
+}
+
+/* Timeline connector */
+.days::before {
+  content: '';
+  position: absolute;
+  left: 28px;
+  top: 40px;
+  bottom: 40px;
+  width: 2px;
+  background: var(--color-border);
+  border-radius: 1px;
 }
 
 .dayCard {
@@ -30,6 +188,33 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   overflow: hidden;
+  position: relative;
+  margin-left: 52px;
+  transition: box-shadow var(--duration-normal) var(--ease-out);
+}
+
+.dayCard:hover {
+  box-shadow: 0 4px 24px rgba(44, 36, 32, 0.06);
+}
+
+/* Timeline dot */
+.dayMarker {
+  position: absolute;
+  left: -52px;
+  top: 22px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-bg-card);
+  border: 2px solid var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-numeric);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  z-index: 1;
 }
 
 .dayHeader {
@@ -37,7 +222,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--space-lg);
+  padding: var(--space-lg) var(--space-lg) var(--space-lg) var(--space-lg);
   background: none;
   border: none;
   color: var(--color-text);
@@ -48,7 +233,13 @@
 }
 
 .dayHeader:hover {
-  background: var(--color-surface);
+  background: rgba(243, 237, 228, 0.5);
+}
+
+.dayHeaderLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .dayTitle {
@@ -69,20 +260,40 @@
   flex-shrink: 0;
 }
 
-.weather {
-  font-size: 0.8rem;
+.weatherPill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-numeric);
+  font-size: 0.75rem;
+  font-weight: 500;
   color: var(--color-text-muted);
+  background: var(--color-surface);
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-variant-numeric: tabular-nums;
+}
+
+.weatherIcon {
+  font-size: 0.9rem;
+  line-height: 1;
 }
 
 .dayCost {
+  font-family: var(--font-numeric);
   font-weight: 600;
   color: var(--color-accent);
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .chevron {
   color: var(--color-text-dim);
   font-size: 0.9rem;
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.chevronOpen {
+  transform: rotate(90deg);
 }
 
 .dayBody {
@@ -91,6 +302,19 @@
   flex-direction: column;
   gap: var(--space-md);
   animation: fadeInUp var(--duration-normal) var(--ease-out);
+}
+
+/* ── Weather Advisory ── */
+.weatherAdvisory {
+  font-size: 0.82rem;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--color-info);
+  background: rgba(46, 122, 184, 0.06);
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
 }
 
 /* ── Slots ── */
@@ -107,7 +331,14 @@
   padding: var(--space-md);
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
+  transition: border-color var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out);
+  position: relative;
+}
+
+.slot:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
 }
 
 .slotFestival {
@@ -130,9 +361,15 @@
 }
 
 .slotType {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   color: var(--color-text-dim);
   text-transform: capitalize;
+  background: var(--color-bg-card);
+  padding: 2px 8px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .slotTitle {
@@ -143,32 +380,78 @@
 }
 
 .slotDesc {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--color-text-muted);
-  line-height: 1.5;
+  line-height: 1.55;
+  flex: 1;
 }
 
 .slotCost {
-  font-size: 0.8rem;
+  font-family: var(--font-numeric);
+  font-size: 0.88rem;
   font-weight: 600;
   color: var(--color-accent);
   margin-top: auto;
+  padding-top: 4px;
 }
 
 /* ── Transport / Accommodation ── */
-.transport, .accommodation {
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-  padding: var(--space-sm) var(--space-md);
-  background: var(--color-surface);
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
+.logisticsRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: var(--space-sm);
 }
 
-.transportIcon {
-  font-size: 1rem;
+.logisticsCard {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  padding: var(--space-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+
+.logisticsCardFull {
+  grid-column: 1 / -1;
+}
+
+.logisticsIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--color-accent-glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.logisticsContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.logisticsTitle {
+  font-weight: 600;
+  color: var(--color-text);
+  font-size: 0.82rem;
+}
+
+.logisticsDetail {
+  font-size: 0.75rem;
+  color: var(--color-text-dim);
+}
+
+.logisticsCost {
+  font-family: var(--font-numeric);
+  font-weight: 600;
+  color: var(--color-accent);
+  font-size: 0.88rem;
 }
 
 /* ── Summary ── */
@@ -185,7 +468,7 @@
 
 .summaryGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-md);
   margin-bottom: var(--space-xl);
 }
@@ -196,11 +479,16 @@
   border-radius: var(--radius-md);
   padding: var(--space-lg);
   text-align: center;
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.summaryCard:hover {
+  border-color: var(--color-accent);
 }
 
 .summaryLabel {
   display: block;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -209,18 +497,26 @@
 }
 
 .summaryValue {
-  font-family: var(--font-display);
-  font-size: 1.8rem;
-  font-weight: 700;
+  font-family: var(--font-numeric);
+  font-size: 1.6rem;
+  font-weight: 600;
   color: var(--color-accent);
 }
 
+/* ── Summary Columns ── */
+.summaryColumns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+}
+
 .summarySection {
-  margin-bottom: var(--space-lg);
+  margin-bottom: 0;
 }
 
 .summarySection h3 {
   margin-bottom: var(--space-sm);
+  font-size: 1.15rem;
 }
 
 .list {
@@ -230,23 +526,138 @@
 
 .list li {
   position: relative;
-  padding-left: 1.2rem;
-  margin-bottom: var(--space-xs);
-  font-size: 0.9rem;
+  padding-left: 1.4rem;
+  margin-bottom: var(--space-sm);
+  font-size: 0.88rem;
   color: var(--color-text-muted);
+  line-height: 1.5;
 }
 
 .list li::before {
-  content: '—';
+  content: '';
   position: absolute;
   left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+/* ── Highlighted Experiences ── */
+.experienceList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.experienceItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  transition: background var(--duration-fast) var(--ease-out);
+}
+
+.experienceItem:hover {
+  background: var(--color-accent-glow);
+}
+
+.experienceNumber {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-accent-glow);
   color: var(--color-accent);
+  font-family: var(--font-numeric);
+  font-size: 0.65rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── Budget Bar ── */
+.budgetBar {
+  margin-top: var(--space-xl);
+  padding: var(--space-lg);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.budgetBarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-sm);
+}
+
+.budgetBarLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-dim);
+}
+
+.budgetBarAmount {
+  font-family: var(--font-numeric);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.budgetTrack {
+  width: 100%;
+  height: 8px;
+  background: var(--color-surface);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.budgetFill {
+  height: 100%;
+  background: var(--color-accent);
+  border-radius: 4px;
+  transition: width var(--duration-slow) var(--ease-out);
+}
+
+.budgetLabels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  font-family: var(--font-numeric);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--color-text-dim);
 }
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .slots { grid-template-columns: 1fr; }
   .summaryGrid { grid-template-columns: 1fr; }
+  .summaryColumns { grid-template-columns: 1fr; }
+  .logisticsRow { grid-template-columns: 1fr; }
   .dayHeader { flex-direction: column; align-items: flex-start; gap: var(--space-sm); }
   .dayMeta { width: 100%; justify-content: space-between; }
+  .routeBanner { flex-direction: column; gap: var(--space-md); padding: var(--space-lg); }
+  .routeLine { max-width: 100%; width: 100%; }
+  .tripInfoBar { grid-template-columns: repeat(2, 1fr); }
+
+  .days::before { left: 16px; }
+  .dayCard { margin-left: 40px; }
+  .dayMarker {
+    left: -40px;
+    width: 28px;
+    height: 28px;
+    font-size: 0.75rem;
+  }
 }

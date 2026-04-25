@@ -1,0 +1,278 @@
+<mxfile host="app.diagrams.net" agent="Kiro">
+  <diagram name="Architecture" id="arch-1">
+    <mxGraphModel dx="1212" dy="733" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title-bar" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#232F3E;strokeColor=#232F3E;" value="" vertex="1">
+          <mxGeometry height="50" width="1520" x="40" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="title-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontStyle=1;fontColor=#FFFFFF;" value="AI Travel Concierge — Multi-Agent Architecture" vertex="1">
+          <mxGeometry height="50" width="1520" x="40" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aws-cloud" parent="1" style="sketch=0;outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=14;fontStyle=1;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_aws_cloud;strokeColor=#AAB7B8;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#AAB7B8;dashed=0;" value="AWS Cloud" vertex="1">
+          <mxGeometry height="1060" width="1220" x="340" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="frontend-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#43A047;strokeWidth=2;dashed=1;" value="" vertex="1">
+          <mxGeometry height="200" width="240" x="50" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="frontend-label" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#2E7D32;" value="Frontend" vertex="1">
+          <mxGeometry height="30" width="240" x="50" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="nextjs" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#43A047;fontSize=13;fontStyle=1;" value="Next.js 14&lt;br&gt;TypeScript" vertex="1">
+          <mxGeometry height="60" width="170" x="85" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="browser" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#43A047;fontSize=11;" value="Browser&lt;br&gt;localhost:3000" vertex="1">
+          <mxGeometry height="50" width="170" x="85" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="apigw" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.api_gateway;" value="API Gateway" vertex="1">
+          <mxGeometry height="78" width="78" x="380" y="201" as="geometry" />
+        </mxCell>
+        <mxCell id="api-routes" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#666666;" value="POST /trips&lt;br&gt;GET /trips/{id}&lt;br&gt;GET /trips/{id}/status" vertex="1">
+          <mxGeometry height="50" width="130" x="380" y="305" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-fe-apigw" edge="1" parent="1" source="nextjs" style="endArrow=classic;html=1;rounded=1;strokeWidth=2;strokeColor=#E7157B;fontColor=#E7157B;fontSize=11;fontStyle=1;" target="apigw" value="REST">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="api-lambdas-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;strokeWidth=2;dashed=1;" value="" vertex="1">
+          <mxGeometry height="260" width="260" x="530" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="api-lambdas-label" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#E65100;" value="API Lambda Functions" vertex="1">
+          <mxGeometry height="25" width="260" x="530" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="trip-submit" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;" value="Trip Submission" vertex="1">
+          <mxGeometry height="60" width="60" x="548" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="trip-retrieve" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;" value="Trip Retrieval" vertex="1">
+          <mxGeometry height="60" width="60" x="630" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="status-fn" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;" value="Status" vertex="1">
+          <mxGeometry height="60" width="60" x="712" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="status-update-fn" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;" value="Status Update" vertex="1">
+          <mxGeometry height="60" width="60" x="630" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-apigw-submit" edge="1" parent="1" source="apigw" style="endArrow=classic;html=1;rounded=1;strokeWidth=2;strokeColor=#ED7100;" target="trip-submit" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-apigw-retrieve" edge="1" parent="1" source="apigw" style="endArrow=classic;html=1;rounded=1;strokeWidth=2;strokeColor=#ED7100;" target="trip-retrieve" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-apigw-status" edge="1" parent="1" source="apigw" style="endArrow=classic;html=1;rounded=1;strokeWidth=2;strokeColor=#ED7100;" target="status-fn" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sfn" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.step_functions;" value="Step Functions&lt;br&gt;State Machine" vertex="1">
+          <mxGeometry height="78" width="78" x="1062" y="157" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-submit-sfn" edge="1" parent="1" source="trip-submit" style="endArrow=classic;html=1;rounded=1;strokeWidth=2;strokeColor=#E7157B;fontColor=#E7157B;fontSize=10;fontStyle=1;edgeStyle=orthogonalEdgeStyle;" target="sfn" value="StartExecution">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="578" y="120" />
+              <mxPoint x="890" y="120" />
+              <mxPoint x="890" y="196" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="parallel-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;strokeWidth=3;" value="" vertex="1">
+          <mxGeometry height="280" width="1140" x="380" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="parallel-label" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#1565C0;" value="Parallel State — 4 AI Agents (Concurrent Execution)" vertex="1">
+          <mxGeometry height="30" width="1140" x="380" y="445" as="geometry" />
+        </mxCell>
+        <mxCell id="agent1-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1976D2;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="210" width="240" x="400" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="agent1-icon" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;" value="Destination&lt;br&gt;Researcher" vertex="1">
+          <mxGeometry height="55" width="55" x="430" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="agent1-apis" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#555555;" value="IRCTC Trains&lt;br&gt;Flights&lt;br&gt;Accommodations" vertex="1">
+          <mxGeometry height="50" width="130" x="500" y="505" as="geometry" />
+        </mxCell>
+        <mxCell id="agent1-retry" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F9A825;fontSize=9;fontStyle=1;" value="Retry x3 + Catch" vertex="1">
+          <mxGeometry height="28" width="100" x="420" y="575" as="geometry" />
+        </mxCell>
+        <mxCell id="agent1-bedrock" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#7B1FA2;fontSize=9;fontStyle=1;" value="Bedrock&lt;br&gt;Nova Pro" vertex="1">
+          <mxGeometry height="28" width="90" x="530" y="575" as="geometry" />
+        </mxCell>
+        <mxCell id="agent1-cb" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=9;fontStyle=1;" value="Circuit Breaker" vertex="1">
+          <mxGeometry height="28" width="200" x="420" y="615" as="geometry" />
+        </mxCell>
+        <mxCell id="agent1-fallback" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#E65100;fontSize=9;fontStyle=2;" value="Fallback Lambda" vertex="1">
+          <mxGeometry height="28" width="200" x="420" y="655" as="geometry" />
+        </mxCell>
+        <mxCell id="agent2-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1976D2;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="210" width="240" x="660" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="agent2-icon" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;" value="Budget&lt;br&gt;Optimizer" vertex="1">
+          <mxGeometry height="55" width="55" x="690" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="agent2-apis" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#555555;" value="Transport Pricing&lt;br&gt;Accommodation Pricing&lt;br&gt;Activity Pricing" vertex="1">
+          <mxGeometry height="50" width="130" x="760" y="505" as="geometry" />
+        </mxCell>
+        <mxCell id="agent2-retry" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F9A825;fontSize=9;fontStyle=1;" value="Retry x3 + Catch" vertex="1">
+          <mxGeometry height="28" width="100" x="680" y="575" as="geometry" />
+        </mxCell>
+        <mxCell id="agent2-bedrock" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#7B1FA2;fontSize=9;fontStyle=1;" value="Bedrock&lt;br&gt;Nova Pro" vertex="1">
+          <mxGeometry height="28" width="90" x="790" y="575" as="geometry" />
+        </mxCell>
+        <mxCell id="agent2-cb" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=9;fontStyle=1;" value="Circuit Breaker" vertex="1">
+          <mxGeometry height="28" width="200" x="680" y="615" as="geometry" />
+        </mxCell>
+        <mxCell id="agent2-fallback" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#E65100;fontSize=9;fontStyle=2;" value="Fallback Lambda" vertex="1">
+          <mxGeometry height="28" width="200" x="680" y="655" as="geometry" />
+        </mxCell>
+        <mxCell id="agent3-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1976D2;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="210" width="240" x="920" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="agent3-icon" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;" value="Weather&lt;br&gt;Analyzer" vertex="1">
+          <mxGeometry height="55" width="55" x="950" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="agent3-apis" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#555555;" value="IMD Weather API&lt;br&gt;Monsoon Detection" vertex="1">
+          <mxGeometry height="50" width="130" x="1020" y="505" as="geometry" />
+        </mxCell>
+        <mxCell id="agent3-retry" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F9A825;fontSize=9;fontStyle=1;" value="Retry x3 + Catch" vertex="1">
+          <mxGeometry height="28" width="100" x="940" y="575" as="geometry" />
+        </mxCell>
+        <mxCell id="agent3-bedrock" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#7B1FA2;fontSize=9;fontStyle=1;" value="Bedrock&lt;br&gt;Nova Pro" vertex="1">
+          <mxGeometry height="28" width="90" x="1050" y="575" as="geometry" />
+        </mxCell>
+        <mxCell id="agent3-cb" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=9;fontStyle=1;" value="Circuit Breaker" vertex="1">
+          <mxGeometry height="28" width="200" x="940" y="615" as="geometry" />
+        </mxCell>
+        <mxCell id="agent3-fallback" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#E65100;fontSize=9;fontStyle=2;" value="Fallback Lambda" vertex="1">
+          <mxGeometry height="28" width="200" x="940" y="655" as="geometry" />
+        </mxCell>
+        <mxCell id="agent4-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1976D2;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="210" width="240" x="1180" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="agent4-icon" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;" value="Experience&lt;br&gt;Curator" vertex="1">
+          <mxGeometry height="55" width="55" x="1210" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="agent4-apis" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#555555;" value="Tourism APIs&lt;br&gt;Holiday Calendar&lt;br&gt;Festival Events" vertex="1">
+          <mxGeometry height="50" width="130" x="1280" y="505" as="geometry" />
+        </mxCell>
+        <mxCell id="agent4-retry" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F9A825;fontSize=9;fontStyle=1;" value="Retry x3 + Catch" vertex="1">
+          <mxGeometry height="28" width="100" x="1200" y="575" as="geometry" />
+        </mxCell>
+        <mxCell id="agent4-bedrock" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#7B1FA2;fontSize=9;fontStyle=1;" value="Bedrock&lt;br&gt;Nova Pro" vertex="1">
+          <mxGeometry height="28" width="90" x="1310" y="575" as="geometry" />
+        </mxCell>
+        <mxCell id="agent4-cb" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=9;fontStyle=1;" value="Circuit Breaker" vertex="1">
+          <mxGeometry height="28" width="200" x="1200" y="615" as="geometry" />
+        </mxCell>
+        <mxCell id="agent4-fallback" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#E65100;fontSize=9;fontStyle=2;" value="Fallback Lambda" vertex="1">
+          <mxGeometry height="28" width="200" x="1200" y="655" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-sfn-parallel" edge="1" parent="1" source="sfn" style="endArrow=classic;html=1;rounded=1;strokeWidth=3;strokeColor=#1565C0;fontColor=#1565C0;fontSize=12;fontStyle=1;entryX=0.634;entryY=0.005;entryDx=0;entryDy=0;entryPerimeter=0;" target="parallel-label" value="Parallel Invoke">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1101" y="330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="merge-fn" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;" value="Merge Lambda" vertex="1">
+          <mxGeometry height="78" width="78" x="911" y="770" as="geometry" />
+        </mxCell>
+        <mxCell id="merge-desc" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#555555;" value="Synthesizes 4 agent outputs&lt;br&gt;into day-by-day itinerary&lt;br&gt;using Bedrock Nova Pro" vertex="1">
+          <mxGeometry height="50" width="160" x="870" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-parallel-merge" edge="1" parent="1" source="parallel-box" style="endArrow=classic;html=1;rounded=1;strokeWidth=3;strokeColor=#E65100;fontColor=#E65100;fontSize=11;fontStyle=1;" target="merge-fn" value="agent_outputs[]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="data-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#7B1FA2;strokeWidth=2;dashed=1;" value="" vertex="1">
+          <mxGeometry height="200" width="1140" x="380" y="930" as="geometry" />
+        </mxCell>
+        <mxCell id="data-label" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;fontStyle=1;fontColor=#7B1FA2;" value="Data Layer" vertex="1">
+          <mxGeometry height="25" width="1140" x="380" y="935" as="geometry" />
+        </mxCell>
+        <mxCell id="dynamodb-itinerary" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#C925D1;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.dynamodb;" value="DynamoDB&lt;br&gt;ItineraryStore" vertex="1">
+          <mxGeometry height="70" width="70" x="520" y="975" as="geometry" />
+        </mxCell>
+        <mxCell id="ddb-desc1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;fontColor=#555555;" value="Itineraries&lt;br&gt;Workflow Status&lt;br&gt;Agent Status" vertex="1">
+          <mxGeometry height="50" width="110" x="510" y="1075" as="geometry" />
+        </mxCell>
+        <mxCell id="dynamodb-cb" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#C925D1;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.dynamodb;" value="DynamoDB&lt;br&gt;CircuitBreaker" vertex="1">
+          <mxGeometry height="70" width="70" x="780" y="975" as="geometry" />
+        </mxCell>
+        <mxCell id="ddb-desc2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;fontColor=#555555;" value="Per-service state&lt;br&gt;CLOSED / OPEN / HALF_OPEN&lt;br&gt;Atomic transitions" vertex="1">
+          <mxGeometry height="50" width="140" x="745" y="1075" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-bucket" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#7AA116;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;" value="S3&lt;br&gt;ArtifactStore" vertex="1">
+          <mxGeometry height="70" width="70" x="1110" y="975" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-desc" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;fontColor=#555555;" value="Itinerary JSON&lt;br&gt;Agent Outputs&lt;br&gt;API Cache&lt;br&gt;Holiday Calendar" vertex="1">
+          <mxGeometry height="60" width="130" x="1080" y="1070" as="geometry" />
+        </mxCell>
+        <mxCell id="bedrock-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE7F6;strokeColor=#4527A0;strokeWidth=2;dashed=1;" value="" vertex="1">
+          <mxGeometry height="200" width="250" x="1250" y="930" as="geometry" />
+        </mxCell>
+        <mxCell id="bedrock-label" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#4527A0;" value="Amazon Bedrock" vertex="1">
+          <mxGeometry height="25" width="250" x="1250" y="935" as="geometry" />
+        </mxCell>
+        <mxCell id="nova-pro" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D1C4E9;strokeColor=#4527A0;fontSize=11;fontStyle=1;" value="Amazon Nova Pro&lt;br&gt;(Primary Model)" vertex="1">
+          <mxGeometry height="45" width="210" x="1270" y="975" as="geometry" />
+        </mxCell>
+        <mxCell id="nova-lite" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D1C4E9;strokeColor=#4527A0;fontSize=11;fontStyle=2;" value="Amazon Nova Lite&lt;br&gt;(Fallback Model)" vertex="1">
+          <mxGeometry height="45" width="210" x="1270" y="1035" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-pro-lite" edge="1" parent="1" source="nova-pro" style="endArrow=classic;html=1;rounded=1;strokeWidth=2;strokeColor=#C62828;dashed=1;dashPattern=8 8;fontColor=#C62828;fontSize=10;fontStyle=2;" target="nova-lite" value="Fallback">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-merge-ddb" edge="1" parent="1" source="merge-fn" style="endArrow=classic;html=1;rounded=1;strokeWidth=2;strokeColor=#C925D1;" target="dynamodb-itinerary" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-merge-s3" edge="1" parent="1" source="merge-fn" style="endArrow=classic;html=1;rounded=1;strokeWidth=2;strokeColor=#7AA116;" target="s3-bucket" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFAFA;strokeColor=#BDBDBD;strokeWidth=1;" value="" vertex="1">
+          <mxGeometry height="260" width="280" x="50" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#333333;" value="Legend" vertex="1">
+          <mxGeometry height="25" width="280" x="50" y="445" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F9A825;" value="" vertex="1">
+          <mxGeometry height="15" width="20" x="70" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1t" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" value="Step Functions Retry (Exp. Backoff + Jitter)" vertex="1">
+          <mxGeometry height="25" width="220" x="100" y="475" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;" value="" vertex="1">
+          <mxGeometry height="15" width="20" x="70" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2t" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" value="DynamoDB-backed Circuit Breaker" vertex="1">
+          <mxGeometry height="25" width="220" x="100" y="505" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#7B1FA2;" value="" vertex="1">
+          <mxGeometry height="15" width="20" x="70" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3t" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" value="Amazon Bedrock (Converse API)" vertex="1">
+          <mxGeometry height="25" width="220" x="100" y="535" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#E65100;" value="" vertex="1">
+          <mxGeometry height="15" width="20" x="70" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4t" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" value="Fallback Path (Cache / Nova Lite / Partial)" vertex="1">
+          <mxGeometry height="25" width="220" x="100" y="565" as="geometry" />
+        </mxCell>
+        <mxCell id="leg5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1976D2;" value="" vertex="1">
+          <mxGeometry height="15" width="20" x="70" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="leg5t" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" value="Parallel Agent Branch" vertex="1">
+          <mxGeometry height="25" width="220" x="100" y="595" as="geometry" />
+        </mxCell>
+        <mxCell id="leg6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#43A047;" value="" vertex="1">
+          <mxGeometry height="15" width="20" x="70" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="leg6t" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" value="Frontend (Next.js + TypeScript)" vertex="1">
+          <mxGeometry height="25" width="220" x="100" y="625" as="geometry" />
+        </mxCell>
+        <mxCell id="leg7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#7B1FA2;" value="" vertex="1">
+          <mxGeometry height="15" width="20" x="70" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="leg7t" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" value="Data Layer (DynamoDB + S3)" vertex="1">
+          <mxGeometry height="25" width="220" x="100" y="655" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
